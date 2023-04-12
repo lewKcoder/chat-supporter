@@ -6,4 +6,32 @@
   max-width: 1080px;
   margin: auto;
   color: #d1d5db;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 16px;
+}
+
+.role_user {
+  background-color: #444654;
+}
+.role_assistant {
+  background-color: #343541;
+}
+
+.icon {
+  background-size: cover;
+  width: 45px;
+  height: 45px;
+  display: block;
+  border-radius: 50%;
+
+  .role_assistant & {
+    background-image: url('../../assets/chatgpt.svg');
+    background-color: #fff;
+  }
+
+  .role_user & {
+    background: linear-gradient(to right, #6d097a, #7bf303);
+  }
 }

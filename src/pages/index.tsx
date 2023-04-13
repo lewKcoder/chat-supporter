@@ -2,7 +2,7 @@ import Head from 'next/head';
 import { LayoutChat } from '@/layouts/chat';
 import { Header } from '@/components/header';
 
-export default function Home() {
+export default function Chat() {
   return (
     <>
       <Head>

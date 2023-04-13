@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import { LayoutChat } from '@/layouts/chat';
+import { Header } from '@/components/header';
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Header />
       <LayoutChat />
     </>
   );

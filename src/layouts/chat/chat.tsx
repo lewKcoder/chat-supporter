@@ -1,17 +1,15 @@
 import { FormEvent, useState, ChangeEvent } from 'react';
+import { useAtom } from 'jotai';
 import { Form } from '@/components/form';
 import { ChatContainer } from '@/components/chat-container';
+import { chatMessageStore } from '@/store/chat-message';
+import { roleStore } from '@/store/role';
 import styles from './styles.module.scss';
 
 export const LayoutChat: any = () => {
-  const [messages, setMessages] = useState([
-    {
-      role: 'assistant',
-      content: "Hello, I'm ChatGPT! Ask me anything!",
-    },
-  ]);
+  const [chatMessage, setChatMessages] = useAtom(chatMessageStore);
+  const [role, setRole] = useAtom(roleStore);
   const [inputValue, setInputValue] = useState('');
-  const [role, setRole] = useState(true);
 
   const handleFormSubmit = async function (e: FormEvent) {
     e.preventDefault();
@@ -23,10 +21,10 @@ export const LayoutChat: any = () => {
     setRole((prev) => !prev);
     setInputValue('');
 
-    const chatMessage = [...messages, newMessage];
-    setMessages(chatMessage);
+    const messages = [...chatMessage, newMessage];
+    setChatMessages(messages);
 
-    await processMessageToChatGPT(chatMessage);
+    await processMessageToChatGPT(messages);
   };
 
   async function processMessageToChatGPT(chatMessage: any) {
@@ -45,7 +43,7 @@ export const LayoutChat: any = () => {
         return data.json();
       })
       .then((data) => {
-        setMessages([
+        setChatMessages([
           ...chatMessage,
           {
             role: 'assistant',
@@ -61,9 +59,11 @@ export const LayoutChat: any = () => {
   };
 
   return (
-    <div className={styles.container}>
-      <ChatContainer messages={messages} />
-      <Form value={inputValue} onChange={handleInputChange} onSubmit={handleFormSubmit} />
-    </div>
+    <>
+      <ChatContainer messages={chatMessage} />
+      <div className={styles.form}>
+        <Form value={inputValue} onChange={handleInputChange} onSubmit={handleFormSubmit} />
+      </div>
+    </>
   );
 };

@@ -1,4 +1,7 @@
-.container {
-  height: 100vh;
-  background-color: #343541;
+.form {
+  position: fixed;
+  bottom: 40px;
+  width: 60%;
+  left: 50%;
+  transform: translateX(-50%);
 }

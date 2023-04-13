@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { LayoutChat } from '@/layouts/chat-support';
+import { LayoutChat } from '@/layouts/chat';
 
 export default function Home() {
   return (

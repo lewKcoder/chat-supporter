@@ -1,4 +1,4 @@
-import { Chat } from '@/components/chat';
+import { Chat } from '@/components/chat-line';
 import { Component } from './types';
 
 export const ChatContainer: Component = (props) => {

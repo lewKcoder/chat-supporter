@@ -1,5 +1,5 @@
 import { FunctionComponent } from 'react';
-import { Props as Prop } from '@/components/chat/types';
+import { Props as Prop } from '@/components/chat-line/types';
 
 type Props = {
   messages: Prop[];

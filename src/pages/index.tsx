@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import { LayoutChat } from '@/layouts/chat';
 import { Header } from '@/components/header';
+import { LayoutChatModal } from '@/layouts/chat-modal';
 
 export default function Chat() {
   return (
@@ -13,6 +14,8 @@ export default function Chat() {
       </Head>
       <Header />
       <LayoutChat />
+
+      <LayoutChatModal />
     </>
   );
 }

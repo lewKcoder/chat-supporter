@@ -5,4 +5,4 @@ export type Props = {
   content: string;
 };
 
-export type Component = FunctionComponent<Props>;
+export type Component = FunctionComponent<Props & { iconColor: { left: string; right: string } }>;

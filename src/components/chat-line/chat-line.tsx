@@ -1,26 +1,8 @@
 import { Component } from './types';
 import styles from './styles.module.scss';
-import { useEffect, useState } from 'react';
 
 export const Chat: Component = (props) => {
-  const { role, content } = props;
-  // const [color, setColor] = useState({
-  //   left: '#fff',
-  //   right: '#000',
-  // });
-
-  // function getRandomColor() {
-  //   const letters = '0123456789ABCDEF';
-  //   let color = '#';
-  //   for (let i = 0; i < 6; i++) {
-  //     color += letters[Math.floor(Math.random() * 16)];
-  //   }
-  //   return color;
-  // }
-
-  // useEffect(() => {
-  //   setColor({ left: getRandomColor(), right: getRandomColor() });
-  // }, []);
+  const { role, content, iconColor } = props;
 
   return (
     <div
@@ -33,11 +15,11 @@ export const Chat: Component = (props) => {
         {content}
       </p>
 
-      {/* <style jsx>{`
+      <style jsx>{`
         .user {
-          background: linear-gradient(to right, ${color.left}, ${color.right});
+          background: linear-gradient(to right, ${iconColor.left}, ${iconColor.right});
         }
-      `}</style> */}
+      `}</style>
     </div>
   );
 };

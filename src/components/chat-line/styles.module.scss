@@ -28,10 +28,6 @@
 
   .role_assistant & {
     background-image: url('../../assets/chatgpt.svg');
-    background-color: #fff;
-  }
-
-  .role_user & {
-    background: linear-gradient(to right, #6d097a, #7bf303);
+    background-color: #5a5a5a;
   }
 }

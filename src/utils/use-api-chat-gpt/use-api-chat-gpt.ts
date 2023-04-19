@@ -2,7 +2,7 @@ import { atom, useAtom, useSetAtom } from 'jotai';
 import { chatMessageStore } from '@/store/chat-message';
 import { roleStore } from '@/store/role';
 
-export const useFetchChatGPTMessage = async () => {
+export const useApiChatGpt = async () => {
   const [chatMessage, setChatMessages] = useAtom(chatMessageStore);
   const setRole = useSetAtom(roleStore);
 

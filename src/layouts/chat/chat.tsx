@@ -5,11 +5,14 @@ import { ChatContainer } from '@/components/chat-container';
 import { chatMessageStore } from '@/store/chat-message';
 import { roleStore } from '@/store/role';
 import styles from './styles.module.scss';
+// import { useApiChatGpt } from '@/utils/use-api-chat-gpt';
 
 export const LayoutChat: any = () => {
   const [chatMessage, setChatMessages] = useAtom(chatMessageStore);
   const [role, setRole] = useAtom(roleStore);
   const [inputValue, setInputValue] = useState('');
+
+  // const useApiChatGpt = useApiChatGpt();
 
   const handleFormSubmit = async function (e: FormEvent) {
     e.preventDefault();
@@ -24,10 +27,10 @@ export const LayoutChat: any = () => {
     const messages = [...chatMessage, newMessage];
     setChatMessages(messages);
 
-    await processMessageToChatGPT(messages);
+    await fetchApiChatGpt(messages);
   };
 
-  async function processMessageToChatGPT(chatMessage: any) {
+  async function fetchApiChatGpt(chatMessage: any) {
     await fetch(process.env.NEXT_PUBLIC_API_URL, {
       method: 'POST',
       headers: {
